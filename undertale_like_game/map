@@ -1,0 +1,21 @@
+undertale_like_game/
+├── main.py                # メインのエントリーポイント
+├── settings.py            # 設定ファイル（ウィンドウサイズ、FPSなど）
+├── assets/                # 画像や音声などのリソースを保存
+│   ├── images/
+│   │   ├── player.png
+│   │   ├── enemy.png
+│   │   └── background.png
+│   └── sounds/
+│       ├── bgm.mp3
+│       └── hit.wav
+├── src/                   # ゲームの各機能ごとのモジュール
+│   ├── __init__.py        # Pythonパッケージとして扱うためのファイル
+│   ├── game.py            # ゲームの基本ロジック
+│   ├── player.py          # プレイヤーのクラスと機能
+│   ├── enemy.py           # 敵キャラクターのクラスと機能
+│   ├── battle.py          # 戦闘システム
+│   ├── dialogue.py        # 会話システム
+│   ├── map.py             # マップ管理と移動ロジック
+│   └── events.py          # イベント管理
+└── README.md              # プロジェクト概要と実行方法
