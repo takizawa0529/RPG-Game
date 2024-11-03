@@ -87,8 +87,8 @@ def draw_dungeon(bg):
   bg.fill(BLACK)
   for y in range(-5, 6):
     for x in range(-5, 6):
-      X = (x+5)*16
-      Y = (y+5)*16
+      X = (x+5)*32
+      Y = (y+5)*32
       dx = pl_x + x
       dy = pl_y + y
       if (0 <= dx and dx < DUNGEON_W) and (0 <= dy and dy < DUNGEON_H):
@@ -102,25 +102,26 @@ def draw_dungeon(bg):
 
 def move_player():
   global pl_x, pl_y
+  step = 1
   key = pygame.key.get_pressed()
 
   if key[pygame.K_UP] == 1:
     if dungeon[pl_y-1][pl_x] != 9:
-      pl_y -= 1
+      pl_y -= step
   if key[pygame.K_DOWN] == 1:
     if dungeon[pl_y+1][pl_x] != 9:
-      pl_y += 1
+      pl_y += step
   if key[pygame.K_LEFT] == 1:
     if dungeon[pl_y][pl_x-1] != 9:
-      pl_x -= 1
+      pl_x -= step
   if key[pygame.K_RIGHT] == 1:
     if dungeon[pl_y][pl_x+1] != 9:
-      pl_x += 1
+      pl_x += step
 
 def main():
   pygame.init()
   pygame.display.set_caption('Walk in a Dungeon')
-  screen = pygame.display.set_mode((352, 352))
+  screen = pygame.display.set_mode((1024, 900))
   clock = pygame.time.Clock()
 
   make_dungeon()
@@ -134,7 +135,7 @@ def main():
     move_player()
     draw_dungeon(screen)
     pygame.display.update()
-    clock.tick(5)
+    clock.tick(2)
 
 if __name__ == '__main__':
   main()
